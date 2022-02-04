@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Battleships
+﻿namespace Battleships
 {
     // Imagine a game of battleships.
     //   The player has to guess the location of the opponent's 'ships' on a 10x10 grid
@@ -20,7 +14,18 @@ namespace Battleships
         // returns: the number of ships sunk by the set of guesses
         public static int Play(string[] ships, string[] guesses)
         {
-            return 0;
+            int hits = 0;
+            foreach (var ship in ships)
+            {
+                Ship sh = new Ship(ship);
+                foreach (var guess in guesses)
+                {
+                    Coordinate testCoordinate = new Coordinate(guess);
+                    if (sh.IsHit(testCoordinate)) hits++;
+                }
+            }
+
+            return hits;
         }
     }
 }
