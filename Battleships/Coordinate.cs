@@ -15,6 +15,9 @@ namespace Battleships
 
             row = int.Parse(coords[0]);
             col = int.Parse(coords[1]);
+
+            if (row < 0 || row > 9 || col < 0 || col > 9)
+                throw new ArgumentException($"Coordinate {coord} is out of bounds 0-9, 0-9");
         }
     }
 }

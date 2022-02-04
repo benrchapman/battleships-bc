@@ -21,7 +21,7 @@
                 foreach (var guess in guesses)
                 {
                     Coordinate testCoordinate = new Coordinate(guess);
-                    if (sh.IsHit(testCoordinate)) hits++;
+                    if (sh.TestIfSunk(testCoordinate)) hits++;
                 }
             }
 
